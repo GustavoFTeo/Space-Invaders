@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://yfl4xpmyetcl"]
+
+[ext_resource type="Script" uid="uid://dtklhfhnk3njj" path="res://Scripts/Cena Principal.gd" id="1_8nl3s"]
+[ext_resource type="PackedScene" uid="uid://bpfsy4s114i7t" path="res://Prefabs/Jogador.tscn" id="1_d18s7"]
+[ext_resource type="Texture2D" uid="uid://oupc4a6e72ns" path="res://Sprites/Fundo.png" id="1_s1pbr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5wprx"]
+size = Vector2(40.0027, 1192)
+
+[sub_resource type="Theme" id="Theme_u621o"]
+default_base_scale = 1.0
+default_font_size = 40
+
+[node name="Cena Principal" type="Node2D"]
+position = Vector2(576, 536)
+script = ExtResource("1_8nl3s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.40803e-05, -212)
+scale = Vector2(0.585938, 0.453125)
+texture = ExtResource("1_s1pbr")
+
+[node name="Paredes" type="StaticBody2D" parent="."]
+position = Vector2(-584, -212)
+collision_layer = 3
+collision_mask = 3
+
+[node name="ParedeE" type="CollisionShape2D" parent="Paredes"]
+shape = SubResource("RectangleShape2D_5wprx")
+
+[node name="ParedeD" type="CollisionShape2D" parent="Paredes"]
+position = Vector2(1168, 0)
+shape = SubResource("RectangleShape2D_5wprx")
+
+[node name="Teto" type="StaticBody2D" parent="Paredes"]
+
+[node name="Teto" type="CollisionShape2D" parent="Paredes/Teto"]
+position = Vector2(580, -344)
+rotation = -1.57079
+shape = SubResource("RectangleShape2D_5wprx")
+
+[node name="RefInimigo" type="Node2D" parent="."]
+position = Vector2(-392, -368)
+
+[node name="Jogador" parent="." instance=ExtResource("1_d18s7")]
+position = Vector2(0, 8)
+
+[node name="Cronometro" type="RichTextLabel" parent="."]
+offset_left = -520.0
+offset_top = 8.0
+offset_right = -336.0
+offset_bottom = 96.0
+theme = SubResource("Theme_u621o")
+
+[node name="Placar" type="RichTextLabel" parent="."]
+offset_left = 424.0
+offset_top = 40.0
+offset_right = 544.0
+offset_bottom = 104.0

@@ -1,0 +1,15 @@
+extends CharacterBody2D
+
+func _physics_process(delta):
+	var força = 500
+	var direcao = Vector2(0, 1)
+	
+	if get_slide_collision_count() > 0:
+		var colisao = get_slide_collision(0)
+		
+		if colisao.get_collider().is_in_group("Jogador"):
+			queue_free()
+			colisao.get_collider().hp_jogador -= 1
+	
+	velocity = força * direcao
+	move_and_slide()

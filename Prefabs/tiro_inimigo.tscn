@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1tl57ukd4d4m"]
+
+[ext_resource type="Script" uid="uid://fgkkgjd3bx15" path="res://Scripts/tiro_inimigo.gd" id="1_8mfj5"]
+[ext_resource type="Texture2D" uid="uid://db1aemyc00hwa" path="res://Sprites/Tiro Laranja.png" id="2_5pji6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hlna0"]
+height = 26.0
+
+[node name="Tiro Inimigo" type="CharacterBody2D"]
+script = ExtResource("1_8mfj5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 2.98023e-08)
+scale = Vector2(1.625, 1.625)
+texture = ExtResource("2_5pji6")
+
+[node name="ColisãoTiro" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_hlna0")
